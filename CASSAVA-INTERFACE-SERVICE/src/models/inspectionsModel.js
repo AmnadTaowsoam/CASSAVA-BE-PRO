@@ -20,7 +20,7 @@ const getInspections = async () => {
 const updateInspection = async (id, request_ref, insp_lot, plant, operation, sample_no, phys001, chem010, chem013, status, message) => {
     const result = await interfacePool.query(
         'UPDATE interface.inspections SET request_ref = $1, insp_lot = $2, plant = $3, operation = $4, sample_no = $5, phys001 = $6, chem010 = $7, chem013 = $8, status = $9, message = $10 WHERE id = $11 RETURNING *',
-        [request_ref, insp_lot, plant, operation, sample_no, phys001, mic_phys004, chem010, chem013, status, message, id]
+        [request_ref, insp_lot, plant, operation, sample_no, phys001, chem010, chem013, status, message, id]
     );
     return result.rows[0];
 };
